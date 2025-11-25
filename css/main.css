@@ -247,7 +247,7 @@ body.bio-page {
 
   .hero-content {
     font-size: calc(var(--index) * 2);
-    margin-top: calc(var(--index) * 4);
+    margin-top: calc(var(--index) * 8);
     padding: 0 1.5rem;
   }
 
