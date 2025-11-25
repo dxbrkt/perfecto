@@ -217,3 +217,50 @@ body.bio-page {
 	opacity: 0.75;
 	border-color: rgba(255,255,255,0.25);
 }
+
+
+
+/* Планшеты и телефоны */
+@media (max-width: 768px) {
+  :root {
+    --index: calc(0.8vw + 0.8vh);
+  }
+
+  .hero-content {
+    font-size: calc(var(--index) * 2.1);
+    margin-top: calc(var(--index) * 4);
+    padding: 0 1.5rem;
+  }
+
+  .hero-content__p {
+    font-size: calc(var(--index) * 0.9);
+  }
+
+  .logo {
+    --logo-size: calc(var(--index) * 6);
+    top: calc(var(--index) * 1.2);
+    left: calc(50% - calc(var(--logo-size) / 2));
+  }
+}
+
+/* Совсем маленькие телефоны */
+@media (max-width: 480px) {
+  :root {
+    --index: calc(0.7vw + 0.7vh);
+  }
+
+  .hero-content {
+    font-size: calc(var(--index) * 1.9);
+    margin-top: calc(var(--index) * 3.5);
+  }
+
+  .hero-content__p {
+    max-width: none;
+  }
+
+  .button-start {
+    font-size: calc(var(--index) * 0.7);
+    padding: calc(var(--index) * 0.6) calc(var(--index) * 1.6);
+  }
+}
+
