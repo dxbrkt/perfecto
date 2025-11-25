@@ -220,47 +220,66 @@ body.bio-page {
 
 
 
-/* Планшеты и телефоны */
+
+
+
+@media (min-width: 1201px) {
+  :root {
+    --index: calc(1vw + 1vh);
+  }
+}
+
+
+@media (max-width: 1200px) {
+  :root {
+    --index: calc(0.95vw + 0.95vh);
+  }
+  .hero-content {
+    margin-top: calc(var(--index) * 3);
+  }
+}
+
+
 @media (max-width: 768px) {
   :root {
     --index: calc(0.8vw + 0.8vh);
   }
 
   .hero-content {
-    font-size: calc(var(--index) * 2.1);
+    font-size: calc(var(--index) * 2);
     margin-top: calc(var(--index) * 4);
     padding: 0 1.5rem;
   }
 
-  .hero-content__p {
-    font-size: calc(var(--index) * 0.9);
+  .logo {
+    width: 100px;
+    height: 100px;
   }
 
-  .logo {
-    --logo-size: calc(var(--index) * 6);
-    top: calc(var(--index) * 1.2);
-    left: calc(50% - calc(var(--logo-size) / 2));
+  .button-start {
+    padding: calc(var(--index) * 0.8) calc(var(--index) * 1.6);
   }
 }
 
-/* Совсем маленькие телефоны */
+
 @media (max-width: 480px) {
   :root {
     --index: calc(0.7vw + 0.7vh);
   }
 
   .hero-content {
-    font-size: calc(var(--index) * 1.9);
-    margin-top: calc(var(--index) * 3.5);
-  }
-
-  .hero-content__p {
-    max-width: none;
+    font-size: calc(var(--index) * 1.8);
+    margin-top: calc(var(--index) * 4);
   }
 
   .button-start {
-    font-size: calc(var(--index) * 0.7);
-    padding: calc(var(--index) * 0.6) calc(var(--index) * 1.6);
+    width: 90%;
+    text-align: center;
+    font-size: calc(var(--index) * 0.8);
+  }
+
+  .bio-card {
+    width: 90%;
+    padding: calc(var(--index) * 2);
   }
 }
-
