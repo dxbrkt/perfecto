@@ -21,7 +21,7 @@ body {
 	color: #fff;
 	font-family: kamerik-3d;
 }
-.loggo {
+.logo {
 	--logo-size: calc(var(--index) * 7.8);
 	width: var(--logo-size);
 	height: var(--logo-size);
@@ -108,178 +108,298 @@ body {
 }
 
 
+
+
 body.bio-page {
-	background-color: #000;
-	color: #fff;
-	font-family: kamerik-3d;
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	overflow: hidden;
+  background: url("../img/layer1.jpg") center/cover no-repeat fixed;
+  color: #fff;
+  font-family: merriweather-italic-3d, serif;
+  min-height: 100vh;
+  padding: 2rem 1rem 3rem;
 }
 
-.bio-page .bio-bg {
-	position: fixed;
-	inset: 0;
-	background-image: url('../img/layer1.jpg');
-	background-size: cover;
-	background-position: center;
-	filter: blur(14px);
-	transform: scale(1.05);
-	z-index: -2;
+
+.bio-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(22px);
+  z-index: -1;
 }
 
-.bio-page::before {
-	content: "";
-	position: fixed;
-	inset: 0;
-	background: radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 55%),
-	            linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
-	z-index: -1;
-}
 
 .bio-card {
-	max-width: 640px;
-	padding: calc(var(--index) * 2.2);
-	border-radius: 32px;
-	border: 1px solid rgba(255,255,255,0.25);
-	background: rgba(0,0,0,0.6);
-	backdrop-filter: blur(18px);
-	box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.4rem 2.8rem 2.6rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: radial-gradient(circle at top, rgba(255,255,255,0.08), rgba(0,0,0,0.9));
+  box-shadow: 0 24px 70px rgba(0,0,0,0.85);
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeInBio 0.7s ease forwards;
+}
+
+
+.bio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+
+.bio-card-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.bio-title-block {
+  max-width: 70%;
 }
 
 .bio-name {
-	font-size: calc(var(--index) * 2.6);
-	text-transform: uppercase;
-	letter-spacing: calc(var(--index) * -.08);
-	margin-bottom: calc(var(--index) * 0.4);
+  font-family: kamerik-3d, serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
 }
 
-.bio-tagline {
-	font-family: merriweather-italic-3d;
-	font-size: calc(var(--index) * 1.0);
-	opacity: 0.8;
-	margin-bottom: calc(var(--index) * 1.6);
+.bio-subtitle {
+  font-size: 0.95rem;
+  color: #d0d0d0;
 }
 
-.bio-row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: calc(var(--index) * 0.6);
-	margin-bottom: calc(var(--index) * 1.4);
+.bio-back-btn {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
-.bio-pill {
-	border-radius: 999px;
-	border: 1px solid rgba(255,255,255,0.35);
-	padding: calc(var(--index) * 0.25) calc(var(--index) * 0.8);
-	font-size: calc(var(--index) * 0.75);
-	text-transform: uppercase;
-	letter-spacing: .08em;
-	opacity: 0.85;
+.bio-back-btn:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(255,255,255,0.25);
 }
+
+
+.bio-tags {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bio-tags span {
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  opacity: 0.9;
+}
+
 
 .bio-text {
-	font-size: calc(var(--index) * 0.9);
-	line-height: 1.5;
-	opacity: 0.9;
-	margin-bottom: calc(var(--index) * 1.6);
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #f2f2f2;
 }
+
+.bio-text b {
+  font-weight: 700;
+}
+
 
 .bio-skills {
-	display: flex;
-	flex-wrap: wrap;
-	gap: calc(var(--index) * 0.5);
-	margin-bottom: calc(var(--index) * 1.8);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.6rem 0 1.2rem;
 }
 
-.bio-skill {
-	border-radius: 999px;
-	padding: calc(var(--index) * 0.25) calc(var(--index) * 0.9);
-	border: 1px solid rgba(255,255,255,0.25);
-	font-size: calc(var(--index) * 0.8);
-	background: rgba(255,255,255,0.04);
-}
-
-.bio-actions {
-	display: flex;
-	flex-wrap: wrap;
-	gap: calc(var(--index) * 0.8);
-}
-
-.bio-link {
-	text-decoration: none;
-}
-
-.bio-link.back {
-	opacity: 0.75;
-	border-color: rgba(255,255,255,0.25);
+.bio-skills span {
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 0.8rem;
 }
 
 
+.bio-contacts {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.6rem;
+}
+
+.bio-contacts-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.9rem;
+  opacity: 0.9;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 1.1rem;
+}
+
+.bio-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.bio-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.bio-contact-item:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-1px);
+}
+
+.bio-contact-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #ffffff, #d0d0d0);
+  color: #111;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
 
 
+.bio-contact-icon.phone::before {
+  content: "📞";
+}
+
+.bio-contact-icon.mail::before {
+  content: "✉️";
+}
+
+.bio-contact-icon.tg::before {
+  content: "✈️";
+}
+
+.bio-contact-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.bio-contact-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.bio-contact-value {
+  font-size: 0.9rem;
+}
 
 
-@media (min-width: 1201px) {
-  :root {
-    --index: calc(1vw + 1vh);
+@keyframes fadeInBio {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+/* адаптив */
 
-@media (max-width: 1200px) {
-  :root {
-    --index: calc(0.95vw + 0.95vh);
-  }
-  .hero-content {
-    margin-top: calc(var(--index) * 3);
+@media (max-width: 1024px) {
+  .bio-card {
+    max-width: 90%;
+    padding: 2.1rem 2rem 2.4rem;
   }
 }
-
 
 @media (max-width: 768px) {
-  :root {
-    --index: calc(0.8vw + 0.8vh);
-  }
-
-  .hero-content {
-    font-size: calc(var(--index) * 2);
-    margin-top: calc(var(--index) * 4);
-    padding: 0 3.5rem;
-  }
-
-  .logo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .button-start {
-    padding: calc(var(--index) * 0.8) calc(var(--index) * 1.6);
-  }
-}
-
-
-@media (max-width: 480px) {
-  :root {
-    --index: calc(0.7vw + 0.7vh);
-  }
-
-  .hero-content {
-    font-size: calc(var(--index) * 1.8);
-    margin-top: calc(var(--index) * 4);
-  }
-
-  .button-start {
-    width: 90%;
-    text-align: center;
-    font-size: calc(var(--index) * 0.8);
+  body.bio-page {
+    padding: 1.5rem 1rem 2.5rem;
   }
 
   .bio-card {
-    width: 90%;
-    padding: calc(var(--index) * 2);
+    max-width: 95%;
+    padding: 1.8rem 1.6rem 2.1rem;
+  }
+
+  .bio-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .bio-title-block {
+    max-width: 100%;
+  }
+
+  .bio-name {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.bio-page {
+    padding: 1.2rem 0.8rem 2.2rem;
+  }
+
+  .bio-card {
+    padding: 1.6rem 1.4rem 1.9rem;
+  }
+
+  .bio-name {
+    font-size: 1.8rem;
+  }
+
+  .bio-contact-item {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .bio-contact-value {
+    font-size: 0.85rem;
   }
 }
